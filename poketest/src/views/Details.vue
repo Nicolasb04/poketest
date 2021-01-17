@@ -1,5 +1,16 @@
 <template>
-  <div class="about">
-    <h1>This is DETAIL page</h1>
-  </div> </template
->;
+  <div>
+    <Details />
+  </div>
+</template>
+
+<script>
+import Details from "@/components/Details.vue";
+
+export default {
+  name: "Detail",
+  components: {
+    Details,
+  },
+};
+</script>

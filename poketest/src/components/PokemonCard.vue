@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-card
-      v-on:click="router.push({ path: 'details' })"
+      v-on:click="pokeRedirect(name)"
       :title="name"
       text="blablabla"
       :img-src="img"
@@ -23,11 +23,6 @@ import axios from "axios";
 
 export default {
   props: ["name"],
-  methods: {
-    testalert() {
-      alert(this.name);
-    },
-  },
   watch: {
     name: {
       immediate: true,
@@ -46,6 +41,11 @@ export default {
       },
     },
   },
+  methods: {
+    pokeRedirect(name) {
+      this.$router.push(`/pokemon/${name}`);
+    },
+  },
   data() {
     return {
       pokes: [],
@@ -55,6 +55,4 @@ export default {
   },
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss"></style>
