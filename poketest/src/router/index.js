@@ -9,23 +9,18 @@ const routes = [
   {
     path: "/home",
     name: "Home",
-    component: () => import("../views/Home.vue"),
+    component: () => import("../views/Home.vue")
   },
 
   {
     path: "/pokemon/:name",
     name: "Detail",
     props: true,
-    component: () => import("../views/Details.vue"),
-  },
-  {
-    path: "/about",
-    name: "About",
-    component: () => import("../views/About.vue"),
-  },
+    component: () => import("../views/Details.vue")
+  }
 ];
 
 const router = new VueRouter({
-  routes,
+  routes
 });
 export default router;

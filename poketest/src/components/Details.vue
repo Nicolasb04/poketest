@@ -6,7 +6,7 @@
         <b-card class="lastSeen" title="Last Pokemon Consulted">
           <br />
           <br />
-          <p>{{ $store.state.lastPoke }}</p>
+          <p>{{ lastVisit }}</p>
         </b-card>
       </b-card-group>
     </div>
@@ -29,27 +29,33 @@ import axios from "axios";
 export default {
   name: "Details",
   components: {
-    PokemonCard: () => import("./PokemonCard"),
+    PokemonCard: () => import("./PokemonCard")
   },
 
   created() {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${this.$route.params.name}`)
-      .then((response) => {
+      .then(response => {
         this.buffer = this.$route.params.name;
         this.infos = response.data;
         this.abilities = response.data.abilities;
-        this.$store.commit("test", this.buffer);
+        this.$store.commit("getlastPoke", this.buffer);
+        if (this.$store.state.lastPoke != "") {
+          this.lastVisit = this.$store.state.lastPoke;
+        } else {
+          this.lastVisit = "None yet!";
+        }
       });
   },
   data() {
     return {
+      lastVisit: "",
       buffer: "",
       img: "",
       infos: [],
-      abilities: [],
+      abilities: []
     };
-  },
+  }
 };
 </script>
 <style scoped lang="scss">
@@ -60,7 +66,7 @@ h3 {
 .abTable {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  margin-right: 30em;
 }
 
 .detailsContainer {
@@ -72,14 +78,14 @@ h3 {
 .pokeCard {
   display: flex;
   flex-direction: column;
-  flex-grow: 2;
+  flex-grow: 1;
   width: 500px;
   height: 500px;
 }
 
 .lastSeen {
   flex-grow: 1;
-  width: 500px;
-  height: 500px;
+  width: auto;
+  height: auto;
 }
 </style>

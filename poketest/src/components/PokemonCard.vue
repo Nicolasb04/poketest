@@ -21,6 +21,7 @@
 import axios from "axios";
 
 export default {
+  ///// Run request each time the "name" value changes." /////
   props: ["name"],
   watch: {
     name: {
@@ -28,7 +29,7 @@ export default {
       async handler() {
         await axios
           .get(`https://pokeapi.co/api/v2/pokemon/${this.name}/`)
-          .then((response) => {
+          .then(response => {
             this.img = response.data.sprites.front_default;
             if (response.data.types[0]) {
               this.types = response.data.types[0].type.name;
@@ -37,22 +38,22 @@ export default {
               this.types += " / " + response.data.types[1].type.name;
             }
           });
-      },
-    },
+      }
+    }
   },
   methods: {
+    ///// Redirect only if route is /home, else does nothing
     pokeRedirect(name) {
       if (this.$route.name == "Home") {
         this.$router.push(`/pokemon/${name}`);
       }
-    },
+    }
   },
   data() {
     return {
-      pokes: [],
       types: [],
-      img: "",
+      img: ""
     };
-  },
+  }
 };
 </script>

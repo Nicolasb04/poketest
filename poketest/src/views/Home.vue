@@ -10,7 +10,7 @@ import Frontpage from "@/components/Frontpage.vue";
 export default {
   name: "Home",
   components: {
-    Frontpage,
-  },
+    Frontpage
+  }
 };
 </script>

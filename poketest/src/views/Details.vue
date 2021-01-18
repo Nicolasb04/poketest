@@ -10,7 +10,7 @@ import Details from "@/components/Details.vue";
 export default {
   name: "Detail",
   components: {
-    Details,
-  },
+    Details
+  }
 };
 </script>

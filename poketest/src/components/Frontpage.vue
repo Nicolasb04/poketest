@@ -1,5 +1,6 @@
 <template>
   <div class="fpContainer">
+    <!-- For each element in pokes, creating a card -->
     <ul v-for="poke of pokes" v-bind:key="poke.id">
       <PokemonCard class="pokeCard" :name="poke.name" />
     </ul>
@@ -12,26 +13,24 @@ import axios from "axios";
 export default {
   name: "Frontpage",
   components: {
-    PokemonCard: () => import("./PokemonCard"),
+    PokemonCard: () => import("./PokemonCard")
   },
+
+  ///// Accessing to all pokemons of 1st gen
   created() {
-    axios.get(`https://pokeapi.co/api/v2/generation/1/`).then((response) => {
+    axios.get(`https://pokeapi.co/api/v2/generation/1/`).then(response => {
       this.pokes = response.data.pokemon_species;
     });
   },
   data() {
     return {
-      pokes: [],
-      test: [],
+      pokes: []
     };
-  },
+  }
 };
 </script>
 
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
 .pokeCard {
   display: flex;
   flex-direction: column;
@@ -43,14 +42,6 @@ h3 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin-right: 3%;
   justify-content: center;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 </style>

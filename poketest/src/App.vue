@@ -10,32 +10,24 @@
 export default {
   name: "App",
   components: {
-    Navbar: () => import("./components/Navbar"),
-  },
+    Navbar: () => import("./components/Navbar")
+  }
 };
 </script>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   text-align: center;
   height: 100%;
+}
+@import url("https://fonts.googleapis.com/css2?family=Miltonian+Tattoo&display=swap");
 
-  color: #2c3e50;
+html,
+body {
+  font-family: "Miltonian Tattoo", cursive;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+#app {
+  font-family: "Miltonian Tattoo", cursive;
 }
 </style>
