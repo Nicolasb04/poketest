@@ -3,7 +3,6 @@
     <b-card
       v-on:click="pokeRedirect(name)"
       :title="name"
-      text="blablabla"
       :img-src="img"
       img-alt="Image"
       img-top
@@ -43,7 +42,9 @@ export default {
   },
   methods: {
     pokeRedirect(name) {
-      this.$router.push(`/pokemon/${name}`);
+      if (this.$route.name == "Home") {
+        this.$router.push(`/pokemon/${name}`);
+      }
     },
   },
   data() {
@@ -55,4 +56,3 @@ export default {
   },
 };
 </script>
-<style scoped lang="scss"></style>

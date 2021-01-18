@@ -1,9 +1,19 @@
 <template>
   <div id="app">
+    <Navbar />
     <div id="nav"></div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  components: {
+    Navbar: () => import("./components/Navbar"),
+  },
+};
+</script>
 
 <style lang="scss">
 #app {

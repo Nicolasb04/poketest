@@ -1,5 +1,5 @@
 <template>
-  <div class="bigcontainer">
+  <div class="fpContainer">
     <ul v-for="poke of pokes" v-bind:key="poke.id">
       <PokemonCard class="pokeCard" :name="poke.name" />
     </ul>
@@ -19,22 +19,6 @@ export default {
       this.pokes = response.data.pokemon_species;
     });
   },
-  // methods: {
-  //   getOnePokemonTypes(name) {
-  //     axios
-  //       .get(`https://pokeapi.co/api/v2/pokemon/${name}/`)
-  //       .then((response) => {
-  //         this.test = response.data.types;
-  //       });
-  //   },
-  //   getOnePokemonImage(name) {
-  //     axios
-  //       .get(`http://pokeapi.co/api/v2/pokemon/${name}/`)
-  //       .then((response) => {
-  //         return response.data.sprite;
-  //       });
-  //   },
-  // },
   data() {
     return {
       pokes: [],
@@ -44,7 +28,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 h3 {
   margin: 40px 0 0;
@@ -56,7 +39,7 @@ h3 {
   height: 400px;
   margin-top: 10%;
 }
-.bigcontainer {
+.fpContainer {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
