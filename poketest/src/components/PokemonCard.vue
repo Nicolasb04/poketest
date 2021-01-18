@@ -9,6 +9,7 @@
       tag="article"
       style="max-width: 20rem;"
       class="mb-2"
+      border-variant="danger"
     >
       <b-card-text>
         {{ types }}

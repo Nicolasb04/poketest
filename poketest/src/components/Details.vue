@@ -3,7 +3,11 @@
     <div class="detailsContainer">
       <b-card-group deck>
         <PokemonCard class="pokeCard" :name="infos.name" />
-        <b-card class="lastSeen" title="Last Pokemon Consulted">
+        <b-card
+          class="lastSeen"
+          title="Last Pokemon Consulted"
+          border-variant="info"
+        >
           <br />
           <br />
           <p>{{ lastVisit }}</p>
@@ -73,6 +77,7 @@ h3 {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin-top: 5%;
 }
 
 .pokeCard {
